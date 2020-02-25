@@ -113,6 +113,7 @@ else
     echo "/dev/block/by-name/india_b created"
 fi
 
+sleep 1s
 done
 
 exit 0
