@@ -1,20 +1,13 @@
-# blu_spark extras
+# (c) 2018-2020 changes for blu_spark by eng.stk
 
 on property:crypto.ready=1
     # Tweak IO performance after boot complete
     write /sys/block/sda/queue/scheduler "zen"
-    write /sys/block/sda/queue/read_ahead_kb 128
-    write /sys/block/sda/queue/iostats 1
-    write /sys/block/sda/queue/nr_requests 128
-    write /sys/block/sde/queue/scheduler "zen"
-    write /sys/block/sde/queue/read_ahead_kb 128
-    write /sys/block/sde/queue/iostats 1
-    write /sys/block/sde/queue/nr_requests 128
+    write /sys/block/sda/queue/read_ahead_kb 512
 
     # Input boost and stune configuration
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:0 1:0 2:0 3:0 4:0 5:0 6:0 7:0"
     write /sys/module/cpu_boost/parameters/input_boost_ms 0
-    write /dev/stune/top-app/schedtune.boost 10
 
     # Disable scheduler core_ctl
     write /sys/devices/system/cpu/cpu0/core_ctl/enable 0
