@@ -29,10 +29,15 @@ $(call inherit-product, device/oneplus/enchilada/device.mk)
 PRODUCT_DEVICE := enchilada
 PRODUCT_NAME := omni_enchilada
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := OnePlus A6003
+PRODUCT_MODEL := OnePlus A6000
 PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=OnePlus6 \
     BUILD_PRODUCT=OnePlus6 \
     TARGET_DEVICE=OnePlus6
+
+# HACK: Set vendor patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.build.security_patch=2099-12-31
+
